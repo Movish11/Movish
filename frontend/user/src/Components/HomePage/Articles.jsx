@@ -64,7 +64,7 @@ const Article = () => {
         </h2>
 
         <p className="text-center text-[#555] mt-4 max-w-2xl mx-auto mb-16">
-          From struggling operations to scalable success stories.
+          From struggling operation to scalable success stories. See how optimized operations help businesses scale
         </p>
 
         {loading ? (

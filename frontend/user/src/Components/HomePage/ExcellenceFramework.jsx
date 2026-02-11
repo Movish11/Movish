@@ -84,7 +84,7 @@ const ExcellenceFramework = () => {
             </h3>
 
             <p className="text-gray-600 mb-8 leading-relaxed">
-              Premium hotels inspired training modules.....
+              Premium hotels inspired training modules that elevate your team from service providers to hospitality professionals
             </p>
 
             <ul className="space-y-4 text-sm text-gray-700">
@@ -122,7 +122,7 @@ const ExcellenceFramework = () => {
 
             <p className="text-gray-600 mb-8 leading-relaxed">
               Rapid operational assessment that identifies revenue leakage,
-              efficiency gaps, and growth opportunities within 3 days.
+              efficiency gaps, and growth opportunities within 14 days.
             </p>
 
             <ul className="space-y-4 text-sm text-gray-700">

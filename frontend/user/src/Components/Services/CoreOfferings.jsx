@@ -39,9 +39,7 @@ export default function CoreOfferings() {
               Operational SOPs
             </h3>
             <p className="text-[#6b6b6b] max-w-3xl mb-6">
-              Transform tribal knowledge into systematic excellence.
-              Comprehensive standard operating procedures that ensure
-              consistency across locations, shifts, and staff changes.
+              Transform practical, on ground knowledge into systematic excellence. Comprehensive standard operating procedures that ensure consistency across locations, shifts, and staff changes.
             </p>
 
             <ul className="space-y-3 mb-8">

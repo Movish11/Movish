@@ -20,8 +20,7 @@ const Hotels = () => {
         </h2>
 
         <p className="text-center font-sans max-w-2xl mx-auto mt-6 text-gray-600">
-          From single-location restaurants to multi-unit chains, we&apos;ve
-          helped transform operations across diverse F&B formats.
+          We establish robust systems and trained teams to streamline operations, enhance guest connection, and successfully scale hospitality brands.
         </p>
 
         {/* Logos */}

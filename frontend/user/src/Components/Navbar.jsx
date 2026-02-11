@@ -128,7 +128,7 @@ const Navbar = () => {
 
               {/* Button content */}
               <span className="relative transition-all duration-300 group-hover/cta:translate-x-[-2px]">
-                <Link to="/contact">Schedule Strategic Discussion</Link>
+                <Link to="/contact">Let's Discuss</Link>
               </span>
               <span
                 className="
@@ -259,7 +259,7 @@ const Navbar = () => {
 
               {/* Button content */}
               <span className="relative transition-all duration-300 group-hover/cta:translate-x-[-2px]">
-                <Link to="/contact">Schedule Discussion</Link>
+                <Link to="/contact">Let's Discuss</Link>
               </span>
               <span
                 className="

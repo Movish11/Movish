@@ -84,25 +84,11 @@ const Founder = () => {
                 <div className="text-[#c89b3c] text-xl">🏨</div>
                 <div>
                   <h4 className="font-semibold text-[#2b2b2b]">
-                    Ex-Taj Hotels
+                    Former Taj Head of Department
                   </h4>
                   <p className="text-sm text-[#666] mt-1">
                     Luxury hospitality operations experience at India&apos;s
                     most prestigious hotel chain
-                  </p>
-                </div>
-              </div>
-
-              {/* Card 4 */}
-              <div className="bg-white rounded-xl p-5 flex gap-4 shadow-sm">
-                <div className="text-[#c89b3c] text-xl">📊</div>
-                <div>
-                  <h4 className="font-semibold text-[#2b2b2b]">
-                    50+ Restaurants Transformed
-                  </h4>
-                  <p className="text-sm text-[#666] mt-1">
-                    Proven track record of operational excellence across diverse
-                    F&B formats
                   </p>
                 </div>
               </div>

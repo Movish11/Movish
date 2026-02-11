@@ -9,7 +9,7 @@ const Hero = () => {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 text-[#ca9822] text-sm mb-6">
           <span>✨</span>
-          <span>India's Premier Restaurant Operations Authority</span>
+          <span>Your Partner in World Class Restaurant Management</span>
         </div>
 
         {/* Heading */}
