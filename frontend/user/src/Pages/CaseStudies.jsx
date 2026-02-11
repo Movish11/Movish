@@ -16,7 +16,7 @@ export default function CaseStudy() {
 
   const fetchStudies = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/blog/list");
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/blog/list`);
       if (response.data.success) {
         setStudies(response.data.blogs);
       }

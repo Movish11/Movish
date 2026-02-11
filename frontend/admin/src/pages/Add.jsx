@@ -89,7 +89,7 @@ const Add = ({ token }) => {
       formData.append("meta", JSON.stringify(metaArray))
       formData.append("stats", JSON.stringify([stat1, stat2, stat3, stat4]))
 
-      const response = await axios.post('http://localhost:4000/api/blog/add', formData, { headers: { token } })
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/blog/add`, formData, { headers: { token } })
 
       if (response.data.success) {
         toast.success(response.data.message)

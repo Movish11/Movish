@@ -24,7 +24,7 @@ const FounderImage = ({ token }) => {
             if (homeImage) formData.append('homeImage', homeImage)
 
             // Placeholder API call
-            // const response = await axios.post('http://localhost:4000/api/founder/upload', formData, { headers: { token } })
+            // const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/founder/upload`, formData, { headers: { token } })
             
             // Mocking success
             setTimeout(() => {

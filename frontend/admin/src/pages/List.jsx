@@ -75,7 +75,7 @@ const List = ({ token }) => {
 
   const fetchList = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/blog/list')
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/blog/list`)
       if (response.data.success) {
         setList(response.data.blogs)
       } else {
@@ -90,7 +90,7 @@ const List = ({ token }) => {
   const removeBlog = async () => {
     if (!selectedBlog) return;
     try {
-        const response = await axios.post('http://localhost:4000/api/blog/remove', { id: selectedBlog.id }, { headers: { token } })
+        const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/blog/remove`, { id: selectedBlog.id }, { headers: { token } })
         if (response.data.success) {
             toast.success(response.data.message)
             setList(prevList => prevList.filter(blog => blog.id !== selectedBlog.id))
@@ -142,7 +142,7 @@ const List = ({ token }) => {
         formData.append("meta", JSON.stringify(metaArray))
         formData.append("stats", JSON.stringify([editStat1, editStat2, editStat3, editStat4]))
 
-        const response = await axios.post('http://localhost:4000/api/blog/update', formData, { headers: { token } })
+        const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/blog/update`, formData, { headers: { token } })
 
         if (response.data.success) {
             toast.success(response.data.message)
