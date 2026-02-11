@@ -14,7 +14,7 @@ app.use(
   cors({
     origin: [
       "https://movish-admin.vercel.app",
-      "https://movish-admin.user.app",
+      "https://movish-user.vercel.app",
       "http://localhost:5173",
       "http://localhost:5174",
     ],
