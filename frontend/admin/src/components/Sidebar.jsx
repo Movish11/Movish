@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { LayoutDashboard, PlusCircle, LogOut, User } from 'lucide-react'
+import { LayoutDashboard, PlusCircle, LogOut, User, Mail } from 'lucide-react'
 import Modal from './Modal'
+import logo from '../assets/logo.png'
 
 const Sidebar = ({ setToken }) => {
     const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
@@ -10,9 +11,7 @@ const Sidebar = ({ setToken }) => {
         <div className='w-[20%] min-h-screen border-r border-gray-100 bg-white sticky top-0 shadow-sm z-40'>
             <div className='px-8 py-10 flex items-center justify-center md:justify-start'>
                 <div className='flex items-center gap-3 group cursor-pointer'>
-                    <div className='w-10 h-10 rounded-lg bg-black text-white flex items-center justify-center font-bold group-hover:bg-[#b88a1e] transition-all duration-300 text-2xl shadow-lg'>
-                        M
-                    </div>
+                    <img src={logo} alt="Movish Logo" className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-md" />
                     <div className='flex flex-col'>
                         <span className='text-xl font-serif font-bold tracking-tight text-gray-900'>Movish</span>
                         <span className='text-[#b88a1e] text-[10px] font-bold tracking-[0.2em] uppercase'>Admin Panel</span>
@@ -45,6 +44,14 @@ const Sidebar = ({ setToken }) => {
                 >
                     <User className={`w-5 h-5 transition-transform duration-300 group-hover:scale-110`} />
                     <p className='hidden md:block text-sm font-medium'>Founder Image</p>
+                </NavLink>
+
+                <NavLink 
+                    to='/contact-requests' 
+                    className={({ isActive }) => `flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-300 group ${isActive ? 'bg-black text-white shadow-md' : 'text-gray-500 hover:text-black hover:bg-gray-50'}`}
+                >
+                    <Mail className={`w-5 h-5 transition-transform duration-300 group-hover:scale-110`} />
+                    <p className='hidden md:block text-sm font-medium'>Contact Requests</p>
                 </NavLink>
 
                 <div className='mt-10 border-t border-gray-50 pt-6'>

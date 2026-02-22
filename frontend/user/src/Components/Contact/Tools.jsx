@@ -48,9 +48,8 @@ const questions = [
   },
 ];
 
-const Tools = () => {
+const Tools = ({ answers, setAnswers, onSubmit, isSubmitting }) => {
   const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState(Array(questions.length).fill(null));
 
   // ROI Calculator State
   const [revenue, setRevenue] = useState(500000);
@@ -72,7 +71,7 @@ const Tools = () => {
   }, [annualRevenue]);
 
   return (
-    <section className="w-full bg-[#f7f4ee] py-8 sm:py-24">
+    <section id="assessment-tools" className="w-full bg-[#f7f4ee] py-8 sm:py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-playfair font-bold text-[#120f07d4] mb-3">
@@ -167,8 +166,12 @@ const Tools = () => {
                   Next Question →
                 </button>
               ) : (
-                <button className="px-6 py-3 rounded-xl bg-[#d6ad3d] text-white font-semibold">
-                  View Results →
+                <button 
+                  onClick={onSubmit}
+                  disabled={isSubmitting || answers.includes(null)}
+                  className="px-6 py-3 rounded-xl bg-[#c99712] text-white font-semibold disabled:opacity-60"
+                >
+                  {isSubmitting ? "Submitting..." : "Submit Request →"}
                 </button>
               )}
             </div>

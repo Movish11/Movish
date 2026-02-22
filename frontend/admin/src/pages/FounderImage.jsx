@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Upload, Camera, User, CheckCircle2, ArrowRight } from 'lucide-react'
+import React, { useState, useEffect } from 'react'
+import { Upload, Camera, User, CheckCircle2, ArrowRight, Trash2 } from 'lucide-react'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 
@@ -7,6 +7,24 @@ const FounderImage = ({ token }) => {
     const [aboutImage, setAboutImage] = useState(null)
     const [homeImage, setHomeImage] = useState(null)
     const [loading, setLoading] = useState(false)
+    const [fetchedAboutImage, setFetchedAboutImage] = useState('')
+    const [fetchedHomeImage, setFetchedHomeImage] = useState('')
+
+    const fetchImages = async () => {
+        try {
+            const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/founder`)
+            if (response.data.success) {
+                setFetchedAboutImage(response.data.data.aboutImage || '')
+                setFetchedHomeImage(response.data.data.homeImage || '')
+            }
+        } catch (error) {
+            console.error('Failed to fetch founder images', error)
+        }
+    }
+
+    useEffect(() => {
+        fetchImages()
+    }, [])
 
     const handleUpload = async (e) => {
         e.preventDefault()
@@ -23,17 +41,38 @@ const FounderImage = ({ token }) => {
             if (aboutImage) formData.append('aboutImage', aboutImage)
             if (homeImage) formData.append('homeImage', homeImage)
 
-            // Placeholder API call
-            // const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/founder/upload`, formData, { headers: { token } })
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/founder/upload`, formData, { headers: { token } })
             
-            // Mocking success
-            setTimeout(() => {
+            if (response.data.success) {
                 toast.success("Founder images updated successfully!")
-                setLoading(false)
-            }, 1000)
+                setAboutImage(null)
+                setHomeImage(null)
+                fetchImages()
+            } else {
+                toast.error(response.data.message)
+            }
+            setLoading(false)
 
         } catch (error) {
             toast.error("Failed to upload images")
+            setLoading(false)
+        }
+    }
+
+    const handleDelete = async (type) => {
+        if (!window.confirm("Are you sure you want to delete this image?")) return;
+        setLoading(true)
+        try {
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/founder/delete`, { type }, { headers: { token } })
+            if (response.data.success) {
+                toast.success(response.data.message)
+                fetchImages()
+            } else {
+                toast.error(response.data.message)
+            }
+        } catch (error) {
+            toast.error("Failed to delete image")
+        } finally {
             setLoading(false)
         }
     }
@@ -60,25 +99,37 @@ const FounderImage = ({ token }) => {
                                 </div>
                             </div>
 
-                            <label htmlFor="aboutImage" className='flex flex-col items-center justify-center w-full aspect-[4/5] border-2 border-dashed border-gray-100 rounded-2xl cursor-pointer bg-gray-50 hover:bg-white hover:border-[#b88a1e]/30 transition-all duration-500 overflow-hidden relative group'>
-                                {aboutImage ? (
-                                    <>
-                                        <img className='w-full h-full object-cover' src={URL.createObjectURL(aboutImage)} alt="About Founder" />
-                                        <div className='absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity'>
-                                            <Camera className='w-8 h-8 text-white' />
+                            <div className='relative w-full aspect-[4/5]'>
+                                <label htmlFor="aboutImage" className='flex flex-col items-center justify-center w-full h-full border-2 border-dashed border-gray-100 rounded-2xl cursor-pointer bg-gray-50 hover:bg-white hover:border-[#b88a1e]/30 transition-all duration-500 overflow-hidden relative group'>
+                                    {aboutImage || fetchedAboutImage ? (
+                                        <>
+                                            <img className='w-full h-full object-cover' src={aboutImage ? URL.createObjectURL(aboutImage) : fetchedAboutImage} alt="About Founder" />
+                                            <div className='absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity'>
+                                                <Camera className='w-8 h-8 text-white' />
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <div className='flex flex-col items-center justify-center p-6 text-center'>
+                                            <div className='w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform'>
+                                                <Upload className='w-6 h-6 text-[#b88a1e]' />
+                                            </div>
+                                            <p className='text-xs font-semibold text-gray-600'>Upload Photo</p>
+                                            <p className='text-[10px] text-gray-400 mt-1'>Used in 'Our Story' section</p>
                                         </div>
-                                    </>
-                                ) : (
-                                    <div className='flex flex-col items-center justify-center p-6 text-center'>
-                                        <div className='w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform'>
-                                            <Upload className='w-6 h-6 text-[#b88a1e]' />
-                                        </div>
-                                        <p className='text-xs font-semibold text-gray-600'>Upload Photo</p>
-                                        <p className='text-[10px] text-gray-400 mt-1'>Used in 'Our Story' section</p>
-                                    </div>
+                                    )}
+                                    <input type="file" id="aboutImage" hidden onChange={(e) => setAboutImage(e.target.files[0])} />
+                                </label>
+                                {(!aboutImage && fetchedAboutImage) && (
+                                    <button 
+                                        type="button" 
+                                        onClick={() => handleDelete('aboutImage')}
+                                        className='absolute top-3 right-3 p-2 bg-red-500 hover:bg-red-600 text-white rounded-full shadow-md transition-colors z-10'
+                                        title="Delete Image"
+                                    >
+                                        <Trash2 className='w-4 h-4' />
+                                    </button>
                                 )}
-                                <input type="file" id="aboutImage" hidden onChange={(e) => setAboutImage(e.target.files[0])} />
-                            </label>
+                            </div>
                         </div>
 
                         {/* Home Page Credentials Image */}
@@ -93,25 +144,37 @@ const FounderImage = ({ token }) => {
                                 </div>
                             </div>
 
-                            <label htmlFor="homeImage" className='flex flex-col items-center justify-center w-full aspect-[4/5] border-2 border-dashed border-gray-100 rounded-2xl cursor-pointer bg-gray-50 hover:bg-white hover:border-[#b88a1e]/30 transition-all duration-500 overflow-hidden relative group'>
-                                {homeImage ? (
-                                    <>
-                                        <img className='w-full h-full object-cover' src={URL.createObjectURL(homeImage)} alt="Home Founder" />
-                                        <div className='absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity'>
-                                            <Camera className='w-8 h-8 text-white' />
+                            <div className='relative w-full aspect-[4/5]'>
+                                <label htmlFor="homeImage" className='flex flex-col items-center justify-center w-full h-full border-2 border-dashed border-gray-100 rounded-2xl cursor-pointer bg-gray-50 hover:bg-white hover:border-[#b88a1e]/30 transition-all duration-500 overflow-hidden relative group'>
+                                    {homeImage || fetchedHomeImage ? (
+                                        <>
+                                            <img className='w-full h-full object-cover' src={homeImage ? URL.createObjectURL(homeImage) : fetchedHomeImage} alt="Home Founder" />
+                                            <div className='absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity'>
+                                                <Camera className='w-8 h-8 text-white' />
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <div className='flex flex-col items-center justify-center p-6 text-center'>
+                                            <div className='w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform'>
+                                                <Upload className='w-6 h-6 text-[#b88a1e]' />
+                                            </div>
+                                            <p className='text-xs font-semibold text-gray-600'>Upload Photo</p>
+                                            <p className='text-[10px] text-gray-400 mt-1'>Used in Home Page credentials</p>
                                         </div>
-                                    </>
-                                ) : (
-                                    <div className='flex flex-col items-center justify-center p-6 text-center'>
-                                        <div className='w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform'>
-                                            <Upload className='w-6 h-6 text-[#b88a1e]' />
-                                        </div>
-                                        <p className='text-xs font-semibold text-gray-600'>Upload Photo</p>
-                                        <p className='text-[10px] text-gray-400 mt-1'>Used in Home Page credentials</p>
-                                    </div>
+                                    )}
+                                    <input type="file" id="homeImage" hidden onChange={(e) => setHomeImage(e.target.files[0])} />
+                                </label>
+                                {(!homeImage && fetchedHomeImage) && (
+                                    <button 
+                                        type="button" 
+                                        onClick={() => handleDelete('homeImage')}
+                                        className='absolute top-3 right-3 p-2 bg-red-500 hover:bg-red-600 text-white rounded-full shadow-md transition-colors z-10'
+                                        title="Delete Image"
+                                    >
+                                        <Trash2 className='w-4 h-4' />
+                                    </button>
                                 )}
-                                <input type="file" id="homeImage" hidden onChange={(e) => setHomeImage(e.target.files[0])} />
-                            </label>
+                            </div>
                         </div>
                     </div>
 

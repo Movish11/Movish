@@ -5,6 +5,8 @@ import { db } from "./config/firebaseConfig.js";
 import { v2 as cloudinary } from "cloudinary";
 import userRouter from "./routes/userRoute.js";
 import blogRouter from "./routes/blogRoute.js";
+import founderRouter from "./routes/founderRoute.js";
+import contactRouter from "./routes/contactRoute.js";
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -32,6 +34,8 @@ cloudinary.config({
 // API Endpoints
 app.use("/api/user", userRouter);
 app.use("/api/blog", blogRouter);
+app.use("/api/founder", founderRouter);
+app.use("/api/contact", contactRouter);
 
 app.get("/", (req, res) => {
   res.send("API Working");

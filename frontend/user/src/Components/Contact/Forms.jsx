@@ -6,9 +6,22 @@ import {
   ArrowRight,
   ArrowLeft,
 } from "lucide-react";
+import { toast } from "react-toastify";
 
-const Forms = () => {
+const Forms = ({ formData, onChange }) => {
   const [step, setStep] = useState(1);
+
+  const handleNextToAssessment = () => {
+    if (!formData.name || !formData.email || !formData.phone || !formData.challenges) {
+      toast.error("Please fill all required fields before proceeding.");
+      return;
+    }
+    // Scroll to Tools section
+    const toolsSection = document.getElementById("assessment-tools");
+    if (toolsSection) {
+      toolsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section className="bg-[#fdfcf9] py-8 sm:py-24">
@@ -56,6 +69,9 @@ const Forms = () => {
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name || ""}
+                  onChange={onChange}
                   placeholder="Enter your full name"
                   className="mt-2 w-full border rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-[#c99712]/40"
                 />
@@ -67,6 +83,9 @@ const Forms = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email || ""}
+                  onChange={onChange}
                   placeholder="your.email@example.com"
                   className="mt-2 w-full border rounded-lg px-4 py-3"
                 />
@@ -78,6 +97,9 @@ const Forms = () => {
                 </label>
                 <input
                   type="text"
+                  name="phone"
+                  value={formData.phone || ""}
+                  onChange={onChange}
                   placeholder="9876543210"
                   className="mt-2 w-full border rounded-lg px-4 py-3"
                 />
@@ -103,6 +125,9 @@ const Forms = () => {
                 </label>
                 <input
                   type="text"
+                  name="company"
+                  value={formData.company || ""}
+                  onChange={onChange}
                   placeholder="Your restaurant or company name"
                   className="mt-2 w-full border rounded-lg px-4 py-3"
                 />
@@ -112,10 +137,15 @@ const Forms = () => {
                 <label className="text-sm font-medium">
                   Number of Locations
                 </label>
-                <select className="mt-2 w-full border rounded-lg px-4 py-3">
-                  <option>1–2 Locations</option>
-                  <option>3–5 Locations</option>
-                  <option>6+ Locations</option>
+                <select 
+                  name="locations"
+                  value={formData.locations || "1-2 Locations"}
+                  onChange={onChange}
+                  className="mt-2 w-full border rounded-lg px-4 py-3"
+                >
+                  <option value="1–2 Locations">1–2 Locations</option>
+                  <option value="3–5 Locations">3–5 Locations</option>
+                  <option value="6+ Locations">6+ Locations</option>
                 </select>
               </div>
 
@@ -123,12 +153,17 @@ const Forms = () => {
                 <label className="text-sm font-medium">
                   Service Interest
                 </label>
-                <select className="mt-2 w-full border rounded-lg px-4 py-3">
-                  <option>
+                <select 
+                  name="serviceInterest"
+                  value={formData.serviceInterest || "Operational SOPs – Digital Operations Bible"}
+                  onChange={onChange}
+                  className="mt-2 w-full border rounded-lg px-4 py-3"
+                >
+                  <option value="Operational SOPs – Digital Operations Bible">
                     Operational SOPs – Digital Operations Bible
                   </option>
-                  <option>Training & Team Systems</option>
-                  <option>Full Operations Consulting</option>
+                  <option value="Training & Team Systems">Training & Team Systems</option>
+                  <option value="Full Operations Consulting">Full Operations Consulting</option>
                 </select>
               </div>
 
@@ -158,6 +193,9 @@ const Forms = () => {
                   Describe Your Operational Challenges *
                 </label>
                 <textarea
+                  name="challenges"
+                  value={formData.challenges || ""}
+                  onChange={onChange}
                   rows={5}
                   placeholder="Tell us about your current operational challenges, growth goals, and what you're looking to achieve..."
                   className="mt-2 w-full border rounded-lg px-4 py-3"
@@ -165,19 +203,6 @@ const Forms = () => {
                 <p className="text-sm text-red-500 mt-1">
                   Please describe your operational challenges
                 </p>
-              </div>
-
-              <div className="bg-neutral-50 p-4 rounded-lg flex gap-3">
-                <input type="checkbox" />
-                <div>
-                  <p className="font-medium">
-                    Include Free Operational Assessment
-                  </p>
-                  <p className="text-sm text-neutral-600">
-                    Complimentary 30-minute assessment to identify
-                    immediate improvement opportunities
-                  </p>
-                </div>
               </div>
 
               <div className="flex justify-between pt-6">
@@ -188,8 +213,11 @@ const Forms = () => {
                   <ArrowLeft size={16} /> Previous
                 </button>
 
-                <button className="bg-[#c99712] text-white px-6 py-3 rounded-lg flex items-center gap-2">
-                  Submit Request <ArrowRight size={16} />
+                <button 
+                  onClick={handleNextToAssessment}
+                  className="bg-[#c99712] text-white px-6 py-3 rounded-lg flex items-center gap-2"
+                >
+                  Proceed to Assessment <ArrowRight size={16} />
                 </button>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [activeItem, setActiveItem] = useState("Home");
@@ -29,9 +30,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/">
             <div className="flex items-center gap-2 group cursor-pointer">
-              <div className="w-8 h-8 rounded bg-black text-white flex items-center justify-center font-semibold group-hover:text-[#b88a1e] group-hover:scale-105 transition-all duration-300 text-xl">
-                M
-              </div>
+              <img src={logo} alt="Movish Logo" className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300" />
               <span className="text-xl tracking-wide font-semibold">
                 Movish
                 <span className="block text-[10px] font-normal tracking-widest text-black/60 group-hover:text-[#b88a1e] transition-colors duration-300">
@@ -187,9 +186,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between mb-8">
             <Link to="/" onClick={closeMenu}>
               <div className="flex items-center gap-2 group cursor-pointer">
-                <div className="w-8 h-8 rounded bg-black text-white flex items-center justify-center font-semibold group-hover:text-[#b88a1e] group-hover:scale-105 transition-all duration-300 text-xl">
-                  M
-                </div>
+                <img src={logo} alt="Movish Logo" className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300" />
                 <span className="text-xl tracking-wide font-semibold">
                   Movish
                   <span className="block text-[10px] font-normal tracking-widest text-black/60 group-hover:text-[#b88a1e] transition-colors duration-300">

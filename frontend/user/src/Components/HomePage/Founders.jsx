@@ -1,9 +1,24 @@
-import React from "react";
-import founderImg from "../../assets/founders/f1.png";
+import React, { useState, useEffect } from "react";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 const Founder = () => {
+  const [image, setImage] = useState("https://placehold.co/600x600/ebebeb/a3a3a3?text=Home+Founder");
+
+  useEffect(() => {
+    const fetchImage = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/founder`);
+        if (response.data.success && response.data.data.homeImage) {
+          setImage(response.data.data.homeImage);
+        }
+      } catch (error) {
+        console.error("Failed to fetch founder image", error);
+      }
+    };
+    fetchImage();
+  }, []);
   return (
     <section className="bg-[#fdfcf9] py-8 sm:py-24">
       <div className="max-w-6xl mx-auto px-4">
@@ -11,7 +26,7 @@ const Founder = () => {
           {/* Image Section */}
           <div className="relative">
             <img
-              src={founderImg}
+              src={image}
               alt="Founder"
               className="rounded-2xl w-full object-cover shadow-sm"
             />

@@ -1,6 +1,22 @@
-import founderImg from "../../assets/founders/f2.png";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 
 const Hero = () => {
+  const [image, setImage] = useState("https://placehold.co/420x520/ebebeb/a3a3a3?text=About+Founder");
+
+  useEffect(() => {
+    const fetchImage = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/founder`);
+        if (response.data.success && response.data.data.aboutImage) {
+          setImage(response.data.data.aboutImage);
+        }
+      } catch (error) {
+        console.error("Failed to fetch founder image", error);
+      }
+    };
+    fetchImage();
+  }, []);
   return (
     <section className="bg-[#fdfcf9] py-16 sm:py-40">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 items-center">
@@ -31,7 +47,7 @@ const Hero = () => {
           <div className="relative rounded-2xl shadow-2xl">
             {/* Image */}
             <img
-              src={founderImg}
+              src={image}
               alt="Founder"
               className="w-[420px] h-[520px] object-cover overflow-hidden rounded-2xl "
             />

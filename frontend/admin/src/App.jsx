@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import Add from './pages/Add'
 import List from './pages/List'
 import FounderImage from './pages/FounderImage'
+import ContactRequests from './pages/ContactRequests'
 import Login from './pages/Login'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -29,6 +30,7 @@ const App = () => {
                 <Route path='/' element={<Add token={token} />} />
                 <Route path='/list' element={<List token={token} />} />
                 <Route path='/founder-image' element={<FounderImage token={token} />} />
+                <Route path='/contact-requests' element={<ContactRequests token={token} />} />
               </Routes>
             </div>
           </div>
