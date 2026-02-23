@@ -56,9 +56,9 @@ const Founder = () => {
 
             {/* Heading */}
             <h2 className="text-4xl md:text-5xl font-playfair font-bold text-[#120f07d4]">
-              Built by Someone Who&apos;s
+              Human Lead. Backed By Structure
               <br />
-              Been in Your Kitchen
+              Built By an Industry Insider
             </h2>
 
             {/* Description */}

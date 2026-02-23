@@ -85,9 +85,9 @@ const Tools = ({ answers, setAnswers, onSubmit, isSubmitting }) => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Assessment Card */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-2xl font-playfair font-bold">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-2">
+              <h3 className="text-xl sm:text-2xl font-playfair font-bold">
                 Free Operational Assessment
               </h3>
               <span className="text-sm text-gray-500">
@@ -103,7 +103,7 @@ const Tools = ({ answers, setAnswers, onSubmit, isSubmitting }) => {
               />
             </div>
 
-            <h4 className="font-medium mb-4 text-gray-900">
+            <h4 className="font-medium mb-4 text-gray-900 text-sm sm:text-base">
               {questions[step].q}
             </h4>
 
@@ -111,7 +111,7 @@ const Tools = ({ answers, setAnswers, onSubmit, isSubmitting }) => {
               {questions[step].options.map((opt, idx) => (
                 <label
                   key={idx}
-                  className={`flex items-center gap-3 px-4 py-4 rounded-xl border cursor-pointer transition ${
+                  className={`flex items-center gap-3 px-4 py-3 sm:py-4 rounded-xl border cursor-pointer transition ${
                     answers[step] === idx
                       ? "border-[#d6ad3d] bg-[#fdf8ec]"
                       : "border-[#eadfcd] bg-[#fffdf9]"
@@ -130,7 +130,7 @@ const Tools = ({ answers, setAnswers, onSubmit, isSubmitting }) => {
                   />
 
                   <div
-                    className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition ${
+                    className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition flex-shrink-0 ${
                       answers[step] === idx
                         ? "border-[#d6ad3d]"
                         : "border-[#eadfcd]"
@@ -141,16 +141,16 @@ const Tools = ({ answers, setAnswers, onSubmit, isSubmitting }) => {
                     )}
                   </div>
 
-                  <span className="text-gray-700">{opt}</span>
+                  <span className="text-sm sm:text-base text-gray-700">{opt}</span>
                 </label>
               ))}
             </div>
 
-            <div className="flex items-center justify-between mt-8">
+            <div className="flex items-center justify-between mt-8 gap-2">
               <button
                 disabled={step === 0}
                 onClick={() => setStep((s) => Math.max(0, s - 1))}
-                className="px-5 py-3 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                className="px-4 py-2.5 sm:px-5 sm:py-3 text-sm sm:text-base rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50"
               >
                 ← Previous
               </button>
@@ -161,7 +161,7 @@ const Tools = ({ answers, setAnswers, onSubmit, isSubmitting }) => {
                   onClick={() =>
                     setStep((s) => Math.min(questions.length - 1, s + 1))
                   }
-                  className="px-6 py-3 rounded-xl bg-[#d6ad3d] text-white font-semibold disabled:opacity-60"
+                  className="px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base rounded-xl bg-[#d6ad3d] text-white font-semibold disabled:opacity-60"
                 >
                   Next Question →
                 </button>
@@ -169,7 +169,7 @@ const Tools = ({ answers, setAnswers, onSubmit, isSubmitting }) => {
                 <button 
                   onClick={onSubmit}
                   disabled={isSubmitting || answers.includes(null)}
-                  className="px-6 py-3 rounded-xl bg-[#c99712] text-white font-semibold disabled:opacity-60"
+                  className="px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base rounded-xl bg-[#c99712] text-white font-semibold disabled:opacity-60"
                 >
                   {isSubmitting ? "Submitting..." : "Submit Request →"}
                 </button>
@@ -178,11 +178,11 @@ const Tools = ({ answers, setAnswers, onSubmit, isSubmitting }) => {
           </div>
 
           {/* ROI Calculator */}
-          <div className="bg-white rounded-2xl p-8 shadow-sm">
-            <h3 className="text-2xl font-playfair font-bold mb-2">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm">
+            <h3 className="text-xl sm:text-2xl font-playfair font-bold mb-2">
               ROI Calculator
             </h3>
-            <p className="text-md font-sans text-gray-600 mb-6">
+            <p className="text-sm sm:text-md font-sans text-gray-600 mb-6">
               Estimate the potential impact of operational transformation on
               your business
             </p>
@@ -212,12 +212,12 @@ const Tools = ({ answers, setAnswers, onSubmit, isSubmitting }) => {
 
             <div className="mt-8">
               <p className="text-sm text-gray-600">Projected Annual Impact</p>
-              <h4 className="text-3xl font-semibold text-[#d6ad3d] mt-1">
+              <h4 className="text-2xl sm:text-3xl font-semibold text-[#d6ad3d] mt-1">
                 ₹{Math.round(projectedImpact.total).toLocaleString("en-IN")}
               </h4>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-6">
               <Stat
                 title="Revenue Increase"
                 value={`+₹${Math.round(projectedImpact.revenueIncrease).toLocaleString("en-IN")}`}
@@ -241,7 +241,7 @@ const Tools = ({ answers, setAnswers, onSubmit, isSubmitting }) => {
               />
             </div>
 
-            <p className="text-xs text-gray-500 mt-6">
+            <p className="text-[10px] sm:text-xs text-gray-500 mt-6 leading-relaxed">
               <span className="font-medium">Based on Industry Benchmarks:</span>{" "}
               These projections are based on average results from our client
               transformations. Actual results may vary based on your specific

@@ -27,20 +27,20 @@ const Forms = ({ formData, onChange }) => {
     <section className="bg-[#fdfcf9] py-8 sm:py-24">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* LEFT FORM */}
-        <div className="bg-white font-sans rounded-2xl shadow-sm p-10">
-          <h2 className="font-playfair font-bold text-3xl text-[#120f07d4]">
+        <div className="bg-white font-sans rounded-2xl shadow-sm p-6 sm:p-10">
+          <h2 className="font-playfair font-bold text-2xl sm:text-3xl text-[#120f07d4]">
             Schedule Strategic Discussion
           </h2>
-          <p className="text-neutral-600 font-sans mt-2">
+          <p className="text-neutral-600 font-sans mt-2 text-sm sm:text-base">
             Let's discuss how we can transform your restaurant operations
           </p>
 
           {/* Steps */}
-          <div className="flex items-center gap-4 mt-8">
+          <div className="flex items-center gap-2 sm:gap-4 mt-8">
             {[1, 2, 3].map((n) => (
-              <div key={n} className="flex items-center gap-4">
+              <div key={n} className="flex items-center gap-2 sm:gap-4">
                 <div
-                  className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-medium
+                  className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-xs sm:text-sm font-medium
                   ${
                     step >= n
                       ? "bg-[#c99712] text-white"
@@ -51,7 +51,7 @@ const Forms = ({ formData, onChange }) => {
                 </div>
                 {n !== 3 && (
                   <div
-                    className={`w-20 h-[2px] ${
+                    className={`w-10 sm:w-20 h-[2px] ${
                       step > n ? "bg-[#c99712]" : "bg-neutral-200"
                     }`}
                   />
@@ -231,11 +231,11 @@ const Forms = ({ formData, onChange }) => {
         </div>
 
         {/* RIGHT CONTACT CARD */}
-        <div className="bg-white rounded-2xl shadow-sm p-10 h-fit">
-          <h3 className="font-playfaair font-bold text-3xl text-[#120f07d4]">
+        <div className="bg-white rounded-2xl shadow-sm p-6 sm:p-10 h-fit">
+          <h3 className="font-playfair font-bold text-2xl sm:text-3xl text-[#120f07d4]">
             Get in Touch
           </h3>
-          <p className="text-neutral-600 font-sans mt-2">
+          <p className="text-neutral-600 font-sans mt-2 text-sm sm:text-base">
             Ready to transform your restaurant operations? Reach out
             through any of these channels.
           </p>

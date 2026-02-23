@@ -32,7 +32,7 @@ const Stats = () => {
   return (
     <section className="w-full bg-[#fdfcf9] py-8 sm:py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 text-center">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
@@ -44,7 +44,7 @@ const Stats = () => {
                 <h3 className="text-lg font-playfair font-bold text-gray-900 mb-2">
                   {stat.title}
                 </h3>
-                <p className="text-sm font-sans text-gray-600 max-w-[220px]">
+                <p className="text-sm font-sans text-gray-600 max-w-[260px] sm:max-w-[220px]">
                   {stat.description}
                 </p>
               </div>
