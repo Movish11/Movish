@@ -8,7 +8,7 @@ const Hero = () => {
         <h2 className="font-playfair font-bold text-4xl md:text-6xl text-[#120f07d4] leading-tight">
           Let's Transform Your
           <br className="hidden md:block" />
-          Operations?
+          Operations
         </h2>
 
         {/* Subtext */}
