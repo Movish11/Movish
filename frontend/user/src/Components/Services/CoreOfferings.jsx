@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function CoreOfferings() {
   return (
-    <section className="bg-[#fdfcf9] py-8 sm:py-28">
+    <section id="our-services" className="bg-[#fdfcf9] py-8 sm:py-28">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
@@ -24,14 +24,14 @@ export default function CoreOfferings() {
         </div>
 
         {/* Top large card */}
-        <div className="group bg-white rounded-3xl shadow-sm overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-xl mb-8 sm:mb-16">
+        <div className="group bg-white rounded-3xl shadow-sm overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-xl mb-8 sm:mb-16 flex flex-col">
           <img
             src={c1}
             alt="Operational SOPs"
             className="w-full h-[360px] object-cover transition-transform duration-700 group-hover:scale-105"
           />
 
-          <div className="p-10">
+          <div className="p-10 flex flex-col flex-1">
             <p className="text-xs tracking-widest text-[#c59a2a] font-semibold mb-3">
               DIGITAL OPERATIONS BIBLE
             </p>
@@ -65,35 +65,37 @@ export default function CoreOfferings() {
               </li>
             </ul>
 
-            <div className="bg-[#f7f4ee] rounded-xl p-6 flex flex-col md:flex-row justify-between gap-6 mb-8">
-              <div>
-                <p className="text-xs text-[#6b6b6b]">TYPICAL ROI</p>
-                <p className="font-semibold">25–40%</p>
+            <div className="mt-auto">
+              <div className="bg-[#f7f4ee] rounded-xl p-6 flex flex-col md:flex-row justify-between gap-6 mb-8">
+                <div>
+                  <p className="text-xs text-[#6b6b6b]">TYPICAL ROI</p>
+                  <p className="font-semibold">25–40%</p>
+                </div>
+                <div>
+                  <p className="text-xs text-[#6b6b6b]">TIMELINE</p>
+                  <p className="font-semibold">4–6 Weeks</p>
+                </div>
               </div>
-              <div>
-                <p className="text-xs text-[#6b6b6b]">TIMELINE</p>
-                <p className="font-semibold">4–6 Weeks</p>
-              </div>
-            </div>
 
-            <Link to="/contact">
-              <button className="w-full bg-[#c59a2a] hover:bg-[#b38b24] text-white py-4 rounded-xl font-medium flex justify-center items-center gap-2 transition">
-                Explore This Service <ArrowRight className="h-4" />
-              </button>
-            </Link>
+              <Link to="/contact">
+                <button className="w-full bg-[#c59a2a] hover:bg-[#b38b24] text-white py-4 rounded-xl font-medium flex justify-center items-center gap-2 transition">
+                  Explore This Service <ArrowRight className="h-4" />
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
 
         {/* Bottom two cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Card 2 */}
-          <div className="group bg-white rounded-3xl shadow-sm overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
+          <div className="group bg-white rounded-3xl shadow-sm overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-xl flex flex-col">
             <img
               src={c2}
               alt="Performance Audits"
               className="w-full h-[260px] object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="p-8">
+            <div className="p-8 flex flex-col flex-1">
               <p className="text-xs tracking-widest text-[#c59a2a] font-semibold mb-3">
                 LUXURY GRADE DEVELOPMENT
               </p>
@@ -128,33 +130,35 @@ export default function CoreOfferings() {
                 </li>
               </ul>
 
-              <div className="bg-[#f7f4ee] rounded-xl p-6 flex justify-between mb-8">
-                <div>
-                  <p className="text-xs text-[#6b6b6b]">TYPICAL ROI</p>
-                  <p className="font-semibold">30–50%</p>
+              <div className="mt-auto">
+                <div className="bg-[#f7f4ee] rounded-xl p-6 flex justify-between mb-8">
+                  <div>
+                    <p className="text-xs text-[#6b6b6b]">TYPICAL ROI</p>
+                    <p className="font-semibold">30–50%</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-[#6b6b6b]">TIMELINE</p>
+                    <p className="font-semibold">6–8 Weeks</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs text-[#6b6b6b]">TIMELINE</p>
-                  <p className="font-semibold">6–8 Weeks</p>
-                </div>
-              </div>
 
-              <Link to="/contact">
-                <button className="w-full bg-[#c59a2a] hover:bg-[#b38b24] text-white py-4 rounded-xl font-medium flex justify-center items-center gap-2 transition">
-                  Explore This Service <ArrowRight className="h-4" />
-                </button>
-              </Link>
+                <Link to="/contact">
+                  <button className="w-full bg-[#c59a2a] hover:bg-[#b38b24] text-white py-4 rounded-xl font-medium flex justify-center items-center gap-2 transition">
+                    Explore This Service <ArrowRight className="h-4" />
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
 
           {/* Card 3 */}
-          <div className="group bg-white rounded-3xl shadow-sm overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
+          <div className="group bg-white rounded-3xl shadow-sm overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-xl flex flex-col">
             <img
               src={c3}
               alt="Performance Audits"
               className="w-full h-[260px] object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="p-8">
+            <div className="p-8 flex flex-col flex-1">
               <p className="text-xs tracking-widest text-[#c59a2a] font-semibold mb-3">
                 72-HOUR REVENUE RECOVERY
               </p>
@@ -186,22 +190,24 @@ export default function CoreOfferings() {
                 </li>
               </ul>
 
-              <div className="bg-[#f7f4ee] rounded-xl p-6 flex justify-between mb-8">
-                <div>
-                  <p className="text-xs text-[#6b6b6b]">TYPICAL ROI</p>
-                  <p className="font-semibold">15–35%</p>
+              <div className="mt-auto">
+                <div className="bg-[#f7f4ee] rounded-xl p-6 flex justify-between mb-8">
+                  <div>
+                    <p className="text-xs text-[#6b6b6b]">TYPICAL ROI</p>
+                    <p className="font-semibold">15–35%</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-[#6b6b6b]">TIMELINE</p>
+                    <p className="font-semibold">2–3 Weeks</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs text-[#6b6b6b]">TIMELINE</p>
-                  <p className="font-semibold">2–3 Weeks</p>
-                </div>
-              </div>
 
-              <Link to="/contact">
-                <button className="w-full bg-[#c59a2a] hover:bg-[#b38b24] text-white py-4 rounded-xl font-medium flex justify-center items-center gap-2 transition">
-                  Explore This Service <ArrowRight className="h-4" />
-                </button>
-              </Link>
+                <Link to="/contact">
+                  <button className="w-full bg-[#c59a2a] hover:bg-[#b38b24] text-white py-4 rounded-xl font-medium flex justify-center items-center gap-2 transition">
+                    Explore This Service <ArrowRight className="h-4" />
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

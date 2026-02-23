@@ -35,7 +35,10 @@ export default function Hero() {
 
         {/* Buttons */}
         <div className=" mt-8 sm:mt-12 flex justify-center gap-4 flex-wrap">
-          <button className="bg-[#c59a2a] hover:bg-[#b38b24] text-white px-8 py-4 rounded-xl font-medium flex items-center gap-2 transition">
+          <button 
+            onClick={() => document.getElementById('our-services')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-[#c59a2a] hover:bg-[#b38b24] text-white px-8 py-4 rounded-xl font-medium flex items-center gap-2 transition"
+          >
             Explore Services
             <ArrowDown className="h-5" />
           </button>

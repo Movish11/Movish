@@ -57,18 +57,19 @@ const Tools = ({ answers, setAnswers, onSubmit, isSubmitting }) => {
   const [ticket, setTicket] = useState(800);
   const [customers, setCustomers] = useState(625);
 
-  const annualRevenue = revenue * 12;
+  const annualRevenue = (Number(revenue) || 0) * 12;
 
   const projectedImpact = useMemo(() => {
-    const revenueIncrease = annualRevenue * 0.18;
-    const costSavings = annualRevenue * 0.1025;
+    const rev = Number(revenue) || 0;
+    const revIncrease = (rev * 12) * 0.18;
+    const costSav = (rev * 12) * 0.1025;
     return {
-      revenueIncrease,
-      costSavings,
-      total: revenueIncrease + costSavings,
-      roi: Math.round(((revenueIncrease + costSavings) / annualRevenue) * 100),
+      revenueIncrease: revIncrease,
+      costSavings: costSav,
+      total: revIncrease + costSav,
+      roi: rev > 0 ? Math.round(((revIncrease + costSav) / (rev * 12)) * 100) : 0,
     };
-  }, [annualRevenue]);
+  }, [revenue]);
 
   return (
     <section id="assessment-tools" className="w-full bg-[#f7f4ee] py-8 sm:py-24">
@@ -260,7 +261,10 @@ const Input = ({ label, value, onChange }) => (
     <input
       type="number"
       value={value}
-      onChange={(e) => onChange(Number(e.target.value))}
+      onChange={(e) => onChange(e.target.value)}
+      onBlur={(e) => {
+        if (e.target.value === "") onChange(0);
+      }}
       className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#d6ad3d]"
     />
   </div>

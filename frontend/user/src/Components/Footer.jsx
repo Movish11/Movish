@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import logo from "../assets/logo.png";
 
 const Footer = () => {
   return (
@@ -8,12 +9,10 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-10 w-10 rounded-lg bg-gray-800 flex items-center justify-center text-white font-bold">
-                M
-              </div>
+              <img src={logo} alt="Movish Logo" className="w-10 h-10 object-contain" />
               <div>
-                <h2 className="text-xl font-semibold text-white">Movish</h2>
-                <p className="text-xs tracking-widest text-gray-400">
+                <h2 className="text-xl font-semibold text-white font-['Yeseva_One']">Movish</h2>
+                <p className="text-[10px] tracking-widest text-gray-400">
                   HOSPITALITY
                 </p>
               </div>
