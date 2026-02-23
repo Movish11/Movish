@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 const Founder = () => {
-  const [image, setImage] = useState("https://placehold.co/600x600/ebebeb/a3a3a3?text=Home+Founder");
+  const [image, setImage] = useState(
+    "https://placehold.co/600x600/ebebeb/a3a3a3?text=Home+Founder",
+  );
 
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/founder`);
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/founder`,
+        );
         if (response.data.success && response.data.data.homeImage) {
           setImage(response.data.data.homeImage);
         }
@@ -65,20 +69,20 @@ const Founder = () => {
             </p>
 
             {/* Credential Cards */}
-        <div className="mt-10 space-y-4">
+            <div className="mt-10 space-y-4">
               {/* Card 1 */}
-            <div className="bg-white rounded-xl p-5 flex gap-4 shadow-sm">
-                <div className="text-[#c89b3c] text-xl">🏛️</div>
-                    <div>
-                        <h4 className="font-semibold text-[#2b2b2b]">
-                            IHM Kolkata Graduate
-                        </h4>
-                        <p className="text-sm text-[#666] mt-1">
-                            India&apos;s premier hospitality institute, foundation of
-                            operational excellence
-                        </p>
-                    </div>
+              <div className="bg-white rounded-xl p-5 flex gap-4 shadow-sm">
+                <div className="text-[#c89b3c] text-xl">🏨</div>
+                <div>
+                  <h4 className="font-semibold text-[#2b2b2b]">
+                    Former Taj Head of Department
+                  </h4>
+                  <p className="text-sm text-[#666] mt-1">
+                    Luxury hospitality operations experience at India&apos;s
+                    most prestigious hotel chain
+                  </p>
                 </div>
+              </div>
 
               {/* Card 2 */}
               <div className="bg-white rounded-xl p-5 flex gap-4 shadow-sm">
@@ -95,15 +99,16 @@ const Founder = () => {
               </div>
 
               {/* Card 3 */}
+
               <div className="bg-white rounded-xl p-5 flex gap-4 shadow-sm">
-                <div className="text-[#c89b3c] text-xl">🏨</div>
+                <div className="text-[#c89b3c] text-xl">🏛️</div>
                 <div>
                   <h4 className="font-semibold text-[#2b2b2b]">
-                    Former Taj Head of Department
+                    IHM Kolkata Graduate
                   </h4>
                   <p className="text-sm text-[#666] mt-1">
-                    Luxury hospitality operations experience at India&apos;s
-                    most prestigious hotel chain
+                    India&apos;s premier hospitality institute, foundation of
+                    operational excellence
                   </p>
                 </div>
               </div>
@@ -112,7 +117,8 @@ const Founder = () => {
             {/* CTA */}
             <div className="mt-10">
               <button className="text-[#c89b3c] font-medium hover:underline flex items-center gap-2">
-                <Link to="/about">Read Full Founder Story </Link><ArrowRight size={16} />
+                <Link to="/about">Read Full Founder Story </Link>
+                <ArrowRight size={16} />
               </button>
             </div>
           </div>

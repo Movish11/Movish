@@ -20,7 +20,7 @@ const Hero = () => {
         </h1>
 
         {/* Subheading */}
-        <p className="text-black/70 font-sans text-xl mx-auto mb-10">
+        <p className="text-black/70 text-xl mx-auto mb-10">
           We build teams that grow your brand and systems that run your business
         </p>
 

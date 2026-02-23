@@ -9,18 +9,23 @@ const LuxuryMachine = () => {
         </h2>
 
         <p className="text-base font-sans md:text-lg text-black/80 max-w-3xl mx-auto mb-10">
-          Join successful restaurant owners who transformed their operations with Movish. Schedule your strategic
-          discussion today and discover how we can help you achieve operational excellence.
+          Join successful restaurant owners who transformed their operations
+          with Movish. Schedule your strategic discussion today and discover how
+          we can help you achieve operational excellence.
         </p>
 
         <div className="flex flex-col font-sans sm:flex-row items-center justify-center gap-4">
-          <button className="px-8 py-4 rounded-xl bg-[#ddb52f] text-black font-semibold shadow-md hover:brightness-95 transition">
-            Email Us Directly
-          </button>
+          <Link to="/contact">
+            <button className="px-8 py-4 rounded-xl bg-[#ddb52f] text-black font-semibold shadow-md hover:brightness-95 transition">
+              Email Us Directly
+            </button>
+          </Link>
 
-          <button className="px-8 py-4 rounded-xl border-2 border-white/70 text-white font-semibold backdrop-blur-sm hover:bg-white/10 transition">
-            Call Now
-          </button>
+          <Link to="/contact">
+            <button className="px-8 py-4 rounded-xl border-2 border-white/70 text-white font-semibold backdrop-blur-sm hover:bg-white/10 transition">
+              Call Now
+            </button>
+          </Link>
         </div>
       </div>
     </section>

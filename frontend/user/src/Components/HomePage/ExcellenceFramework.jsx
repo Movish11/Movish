@@ -66,9 +66,11 @@ const ExcellenceFramework = () => {
               ))}
             </ul>
 
+            <Link to="/services">
             <button className="mt-10 text-sm font-medium text-[#b9982b] flex items-center gap-2">
               Explore SOPs <ArrowRight size={16} />
-            </button>
+              </button>
+              </Link>
           </div>
 
           {/* Card 2 */}
@@ -103,9 +105,11 @@ const ExcellenceFramework = () => {
               ))}
             </ul>
 
+            <Link to="/services">
             <button className="mt-10 text-sm font-medium text-[#b9982b] flex items-center gap-2">
               View Training <ArrowRight size={16} />
-            </button>
+              </button>
+              </Link>
           </div>
 
           {/* Card 3 */}
@@ -141,9 +145,11 @@ const ExcellenceFramework = () => {
               ))}
             </ul>
 
+            <Link to="/contact">
             <button className="mt-10 text-sm font-medium text-[#b9982b] flex items-center gap-2">
               Request Audit <ArrowRight size={16} />
-            </button>
+              </button>
+              </Link>
           </div>
         </div>
 
