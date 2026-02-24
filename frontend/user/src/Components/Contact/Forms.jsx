@@ -108,9 +108,9 @@ const Forms = ({ formData, onChange }) => {
               <div className="flex justify-end pt-6">
                 <button
                   onClick={() => setStep(2)}
-                  className="bg-[#c99712] text-white px-6 py-3 rounded-lg flex items-center gap-2 cursor-pointer"
+                  className="w-full md:w-auto bg-[#c99712] text-white px-6 h-14 rounded-xl flex items-center justify-center gap-2 cursor-pointer font-semibold shadow-lg shadow-[#c99712]/10 active:scale-[0.98] transition-all"
                 >
-                  Next Step <ArrowRight size={16} />
+                  Next Step <ArrowRight size={18} />
                 </button>
               </div>
             </div>
@@ -167,19 +167,19 @@ const Forms = ({ formData, onChange }) => {
                 </select>
               </div>
 
-              <div className="flex justify-between pt-6">
+              <div className="flex flex-col-reverse md:flex-row justify-between pt-6 gap-4">
                 <button
                   onClick={() => setStep(1)}
-                  className="border px-6 py-3 rounded-lg flex items-center gap-2 cursor-pointer"
+                  className="w-full md:w-auto border-2 border-neutral-100 px-6 h-14 rounded-xl flex items-center justify-center gap-2 cursor-pointer font-medium text-neutral-600 hover:bg-neutral-50 transition-all"
                 >
-                  <ArrowLeft size={16} /> Previous
+                  <ArrowLeft size={18} /> Previous
                 </button>
 
                 <button
                   onClick={() => setStep(3)}
-                  className="bg-[#c99712] text-white px-6 py-3 rounded-lg flex items-center gap-2 cursor-pointer"
+                  className="w-full md:w-auto bg-[#c99712] text-white px-6 h-14 rounded-xl flex items-center justify-center gap-2 cursor-pointer font-semibold shadow-lg shadow-[#c99712]/10 active:scale-[0.98] transition-all"
                 >
-                  Next Step <ArrowRight size={16} />
+                  Next Step <ArrowRight size={18} />
                 </button>
               </div>
             </div>
@@ -205,19 +205,19 @@ const Forms = ({ formData, onChange }) => {
                 </p>
               </div>
 
-              <div className="flex justify-between pt-6">
+              <div className="flex flex-col-reverse md:flex-row justify-between pt-6 gap-4">
                 <button
                   onClick={() => setStep(2)}
-                  className="border px-6 py-3 rounded-lg flex items-center gap-2 cursor-pointer"
+                  className="w-full md:w-auto border-2 border-neutral-100 px-6 h-14 rounded-xl flex items-center justify-center gap-2 cursor-pointer font-medium text-neutral-600 hover:bg-neutral-50 transition-all"
                 >
-                  <ArrowLeft size={16} /> Previous
+                  <ArrowLeft size={18} /> Previous
                 </button>
 
                 <button 
                   onClick={handleNextToAssessment}
-                  className="bg-[#c99712] text-white px-6 py-3 rounded-lg flex items-center gap-2 cursor-pointer"
+                  className="w-full md:w-auto bg-[#c99712] text-white px-8 h-14 rounded-xl flex items-center justify-center gap-2 cursor-pointer font-bold shadow-lg shadow-[#c99712]/20 active:scale-[0.98] transition-all"
                 >
-                  Proceed to Assessment <ArrowRight size={16} />
+                  Proceed to Assessment <ArrowRight size={18} />
                 </button>
               </div>
             </div>

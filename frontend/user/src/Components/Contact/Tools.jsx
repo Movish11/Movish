@@ -147,11 +147,11 @@ const Tools = ({ answers, setAnswers, onSubmit, isSubmitting }) => {
               ))}
             </div>
 
-            <div className="flex items-center justify-between mt-8 gap-2">
+            <div className="flex flex-col-reverse md:flex-row items-center justify-between mt-10 gap-4">
               <button
                 disabled={step === 0}
                 onClick={() => setStep((s) => Math.max(0, s - 1))}
-                className="px-4 py-2.5 sm:px-5 sm:py-3 text-sm sm:text-base rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                className="w-full md:w-auto px-6 h-14 rounded-xl border-2 border-gray-100 text-gray-600 font-medium hover:bg-gray-50 disabled:opacity-50 transition-all"
               >
                 ← Previous
               </button>
@@ -162,7 +162,7 @@ const Tools = ({ answers, setAnswers, onSubmit, isSubmitting }) => {
                   onClick={() =>
                     setStep((s) => Math.min(questions.length - 1, s + 1))
                   }
-                  className="px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base rounded-xl bg-[#d6ad3d] text-white font-semibold cursor-pointer disabled:opacity-60"
+                  className="w-full md:w-auto px-8 h-14 rounded-xl bg-[#d6ad3d] text-white font-bold shadow-lg shadow-[#d6ad3d]/10 active:scale-[0.98] cursor-pointer disabled:opacity-60 transition-all"
                 >
                   Next Question →
                 </button>
@@ -170,7 +170,7 @@ const Tools = ({ answers, setAnswers, onSubmit, isSubmitting }) => {
                 <button 
                   onClick={onSubmit}
                   disabled={isSubmitting || answers.includes(null)}
-                  className="px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base rounded-xl bg-[#c99712] text-white font-semibold disabled:opacity-60"
+                  className="w-full md:w-auto px-8 h-14 rounded-xl bg-[#c99712] text-white font-bold shadow-lg shadow-[#c99712]/20 active:scale-[0.98] disabled:opacity-60 transition-all"
                 >
                   {isSubmitting ? "Submitting..." : "Submit Request →"}
                 </button>
