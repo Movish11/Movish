@@ -1,4 +1,5 @@
 import { Search, Settings, Rocket, TrendingUp, Lightbulb } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Methodology() {
   return (
@@ -76,9 +77,11 @@ export default function Methodology() {
             and the teams that grow your brand.
           </p>
 
-          <button className="mt-8 inline-flex items-center gap-2 text-[#d4af37] font-medium hover:gap-3 transition-all">
+          <Link to="/about">
+          <button className="mt-8 inline-flex items-center gap-2 text-[#d4af37] font-medium hover:gap-3 transition-all cursor-pointer">
             Learn About Our Founder’s Journey <span>→</span>
-          </button>
+            </button>
+            </Link>
         </div>
       </div>
     </section>

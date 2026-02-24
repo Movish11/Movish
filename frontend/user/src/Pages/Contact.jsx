@@ -6,15 +6,26 @@ import LuxuryMachine from '../Components/Contact/LuxuaryMachine'
 import Tools from '../Components/Contact/Tools'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import Confetti from 'react-confetti'
 import { useWindowSize } from 'react-use'
-import { CheckCircle2 } from 'lucide-react'
+import { CheckCircle2, AlertTriangle } from 'lucide-react'
 
 const Contact = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { width, height } = useWindowSize();
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showValidationErrorPopup, setShowValidationErrorPopup] = useState(false);
+
+  React.useEffect(() => {
+    if (location.hash === "#assessment") {
+      const element = document.getElementById("assessment");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -40,7 +51,7 @@ const Contact = () => {
 
   const handleSubmitContactWrapper = async () => {
     if (!formData.name || !formData.email || !formData.phone || !formData.challenges) {
-      toast.error("Please fill all required fields in the contact form first.");
+      setShowValidationErrorPopup(true);
       return;
     }
 
@@ -153,18 +164,44 @@ const Contact = () => {
           </div>
         </div>
       )}
+
+      {showValidationErrorPopup && (
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/60 shadow-xl backdrop-blur-sm">
+          <div className="bg-white p-10 rounded-3xl shadow-2xl flex flex-col items-center justify-center gap-4 text-center max-w-sm mx-4 transform scale-100 transition-all">
+            <div className="w-20 h-20 rounded-full bg-red-50 flex items-center justify-center">
+              <AlertTriangle className="w-12 h-12 text-red-500" />
+            </div>
+            <h2 className="text-3xl font-playfair font-bold text-gray-900">Wait a Moment!</h2>
+            <p className="text-gray-600 font-sans">Please fill out the main contact form details (Name, Email, Phone, and Challenges) before submitting your operational assessment.</p>
+            <button 
+              onClick={() => {
+                setShowValidationErrorPopup(false);
+                const formElement = document.getElementById("main-form");
+                if (formElement) formElement.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="mt-4 px-8 py-3 bg-black text-white rounded-xl font-bold hover:bg-[#c99712] transition-colors"
+            >
+              Okay, I'll fill it
+            </button>
+          </div>
+        </div>
+      )}
       <div>
         <Hero />
-      <Forms 
-        formData={formData} 
-        onChange={handleFormChange} 
-      />
-      <Tools 
-        answers={assessmentAnswers}
-        setAnswers={setAssessmentAnswers}
-        onSubmit={handleSubmitContactWrapper}
-        isSubmitting={isSubmitting}
-      />
+      <div id="main-form">
+        <Forms 
+          formData={formData} 
+          onChange={handleFormChange} 
+        />
+      </div>
+      <div id="assessment">
+        <Tools 
+          answers={assessmentAnswers}
+          setAnswers={setAssessmentAnswers}
+          onSubmit={handleSubmitContactWrapper}
+          isSubmitting={isSubmitting}
+        />
+      </div>
       <Stats />
       <LuxuryMachine/>
     </div>

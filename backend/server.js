@@ -7,6 +7,7 @@ import userRouter from "./routes/userRoute.js";
 import blogRouter from "./routes/blogRoute.js";
 import founderRouter from "./routes/founderRoute.js";
 import contactRouter from "./routes/contactRoute.js";
+import brandRouter from "./routes/brandRoute.js";
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -40,6 +41,7 @@ app.use("/api/user", userRouter);
 app.use("/api/blog", blogRouter);
 app.use("/api/founder", founderRouter);
 app.use("/api/contact", contactRouter);
+app.use("/api/brand", brandRouter);
 
 app.get("/", (req, res) => {
   res.send("API Working");

@@ -1,15 +1,34 @@
-import h1 from "../../assets/hotels/h1.png";
-import h2 from "../../assets/hotels/h2.png";
-import h3 from "../../assets/hotels/h3.png";
-import h4 from "../../assets/hotels/h4.png";
-import h5 from "../../assets/hotels/h5.png";
-import h6 from "../../assets/hotels/h6.png";
-import h7 from "../../assets/hotels/h7.png";
-
 import { GraduationCap, Building2, ShieldCheck, BarChart3 } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Hotels = () => {
-  const hotels = [h1, h2, h3, h4, h5, h6, h7];
+  const [brands, setBrands] = useState([]);
+
+  useEffect(() => {
+    const fetchBrands = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/brand`);
+        if (response.data.success) {
+          // Sort redundantly for safety: latest at the end (Ascending)
+          const sorted = [...response.data.data].sort((a, b) => {
+            const getT = (v) => {
+              if (!v) return 0;
+              if (typeof v === 'number') return v;
+              if (v.seconds !== undefined) return v.seconds * 1000 + (v.nanoseconds ? v.nanoseconds / 1000000 : 0);
+              const d = new Date(v);
+              return isNaN(d.getTime()) ? 0 : d.getTime();
+            };
+            return getT(a.createdAt) - getT(b.createdAt);
+          });
+          setBrands(sorted);
+        }
+      } catch (error) {
+        console.error("Failed to fetch brands", error);
+      }
+    };
+    fetchBrands();
+  }, []);
 
   return (
     <section className="bg-[#f7f4ee] py-8 sm:py-28">
@@ -24,20 +43,22 @@ const Hotels = () => {
         </p>
 
         {/* Logos */}
-        <div className="mt-15 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-4 items-center">
-          {hotels.map((logo, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl p-6 flex items-center justify-center shadow-sm hover:shadow-md transition"
-            >
-              <img
-                src={logo}
-                alt={`Hotel ${index + 1}`}
-                className="h-25 w-25 rounded-xl object-contain"
-              />
-            </div>
-          ))}
-        </div>
+        {brands.length > 0 && (
+          <div className="mt-15 flex flex-wrap justify-center gap-4 items-center">
+            {brands.map((brand, index) => (
+              <div
+                key={brand.id || index}
+                className="bg-white rounded-2xl p-6 flex items-center justify-center shadow-sm hover:shadow-md transition w-[calc(50%-1rem)] sm:w-[calc(33.33%-1rem)] md:w-[calc(14.28%-1rem)] min-w-[140px]"
+              >
+                <img
+                  src={brand.image}
+                  alt={`Hotel ${index + 1}`}
+                  className="h-25 w-25 rounded-xl object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Credentials label */}
         <div className="mt-8 sm:mt-28 flex items-center justify-center gap-2 text-md text-gray-600">

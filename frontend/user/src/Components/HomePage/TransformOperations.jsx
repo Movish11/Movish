@@ -61,7 +61,7 @@ const TransformOperations = () => {
               operations.
             </p>
 
-            <Link to="/contact">
+            <Link to="/contact#assessment">
             <button className="mt-8 w-full border border-[#2b2b2b] py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-[#f6f6f6] transition cursor-pointer">
               Start Assessment →
               </button>

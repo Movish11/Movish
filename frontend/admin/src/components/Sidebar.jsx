@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { LayoutDashboard, PlusCircle, LogOut, User, Mail } from 'lucide-react'
+import { LayoutDashboard, PlusCircle, LogOut, User, Mail, Image } from 'lucide-react'
 import Modal from './Modal'
 import logo from '../assets/logo.png'
 
@@ -39,11 +39,11 @@ const Sidebar = ({ setToken }) => {
                 </NavLink>
 
                 <NavLink 
-                    to='/founder-image' 
+                    to='/brands' 
                     className={({ isActive }) => `flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-300 group ${isActive ? 'bg-black text-white shadow-md' : 'text-gray-500 hover:text-black hover:bg-gray-50'}`}
                 >
-                    <User className={`w-5 h-5 transition-transform duration-300 group-hover:scale-110`} />
-                    <p className='hidden md:block text-sm font-medium'>Founder Image</p>
+                    <Image className={`w-5 h-5 transition-transform duration-300 group-hover:scale-110`} />
+                    <p className='hidden md:block text-sm font-medium'>Brand Uploads</p>
                 </NavLink>
 
                 <NavLink 
