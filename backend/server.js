@@ -47,6 +47,14 @@ app.get("/", (req, res) => {
   res.send("API Working");
 });
 
+// 404 Middleware for invalid API routes
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    message: "API route not found",
+  });
+});
+
 app.listen(port, () => {
   console.log("Server started on Port: " + port);
 });

@@ -8,6 +8,7 @@ import FounderImage from './pages/FounderImage'
 import ContactRequests from './pages/ContactRequests'
 import Brands from './pages/Brands'
 import Login from './pages/Login'
+import NotFound from './pages/NotFound'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -33,6 +34,7 @@ const App = () => {
                 <Route path='/founder-image' element={<FounderImage token={token} />} />
                 <Route path='/contact-requests' element={<ContactRequests token={token} />} />
                 <Route path='/brands' element={<Brands token={token} />} />
+                <Route path='*' element={<NotFound />} />
               </Routes>
             </div>
           </div>

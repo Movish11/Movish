@@ -8,6 +8,7 @@ import Footer from "./Components/Footer";
 import Services from "./Pages/Services";
 import CaseStudy from "./Pages/CaseStudies";
 import ScrollToTop from "./Components/scrollTop";
+import NotFound from "./Pages/NotFound";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/case-studies" element={<CaseStudy />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>
