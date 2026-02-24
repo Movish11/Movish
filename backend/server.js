@@ -16,6 +16,7 @@ app.use(
   cors({
     origin: [
       "https://movish.in",
+      "https://www.movish.in",
       "https://movish-admin.vercel.app",
       "https://movish-admin-amber.vercel.app",
       "https://movish-user.vercel.app",
