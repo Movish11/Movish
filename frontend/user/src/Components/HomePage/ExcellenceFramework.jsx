@@ -155,9 +155,11 @@ const ExcellenceFramework = () => {
 
         {/* Bottom CTA */}
         <div className="flex justify-center mt-5 sm:mt-20">
-          <button className="border border-gray-900 px-8 py-4 rounded-xl text-sm font-medium flex items-center gap-2 hover:bg-gray-900 hover:text-white transition">
-            <Link to="/services">View All Services</Link> <ArrowRight size={16} />
-          </button>
+          <Link to="/services">
+          <button className="border border-gray-900 px-8 py-4 rounded-xl text-sm font-medium flex items-center gap-2 hover:bg-gray-900 hover:text-white transition cursor-pointer">
+            View All Services<ArrowRight size={16} />
+            </button>
+            </Link> 
         </div>
       </div>
     </section>

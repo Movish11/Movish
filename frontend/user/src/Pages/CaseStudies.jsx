@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import CaseStudyCard from "../Components/CaseStudyCard";
 import CaseStudyModal from "../Components/CaseStudyModal";
+import { Link } from "react-router-dom";
 
 export default function CaseStudy() {
   const [studies, setStudies] = useState([]);
@@ -92,12 +93,16 @@ export default function CaseStudy() {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <button className="bg-[#c59a2a] hover:bg-[#b38b24] text-white px-10 py-5 rounded-2xl font-bold shadow-lg shadow-[#c59a2a]/20 flex items-center gap-2 justify-center transition-all hover:-translate-y-1">
+            <Link to="/contact">
+            <button className="bg-[#c59a2a] hover:bg-[#b38b24] text-white px-10 py-5 rounded-2xl font-medium shadow-lg shadow-[#c59a2a]/20 flex items-center gap-2 justify-center transition-all hover:-translate-y-1 cursor-pointer">
               Schedule Strategic Discussion <ArrowRight className="h-5 w-5" />
-            </button>
-            <button className="border-2 border-[#2a2a2a] px-10 py-5 rounded-2xl font-bold flex items-center gap-2 justify-center hover:bg-[#2a2a2a] hover:text-white transition-all hover:-translate-y-1">
+              </button>
+            </Link>
+            <Link to="/services">
+            <button className="border-2 border-[#2a2a2a] px-10 py-5 rounded-2xl font-medium flex items-center gap-2 justify-center hover:bg-[#2a2a2a] hover:text-white transition-all hover:-translate-y-1 cursor-pointer">
               Explore Our Services ✨
-            </button>
+              </button>
+              </Link>
           </div>
         </div>
       </div>

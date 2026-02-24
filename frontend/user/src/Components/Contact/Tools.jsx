@@ -162,7 +162,7 @@ const Tools = ({ answers, setAnswers, onSubmit, isSubmitting }) => {
                   onClick={() =>
                     setStep((s) => Math.min(questions.length - 1, s + 1))
                   }
-                  className="px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base rounded-xl bg-[#d6ad3d] text-white font-semibold disabled:opacity-60"
+                  className="px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base rounded-xl bg-[#d6ad3d] text-white font-semibold cursor-pointer disabled:opacity-60"
                 >
                   Next Question →
                 </button>

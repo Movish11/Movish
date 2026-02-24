@@ -108,7 +108,7 @@ const Forms = ({ formData, onChange }) => {
               <div className="flex justify-end pt-6">
                 <button
                   onClick={() => setStep(2)}
-                  className="bg-[#c99712] text-white px-6 py-3 rounded-lg flex items-center gap-2"
+                  className="bg-[#c99712] text-white px-6 py-3 rounded-lg flex items-center gap-2 cursor-pointer"
                 >
                   Next Step <ArrowRight size={16} />
                 </button>
@@ -170,14 +170,14 @@ const Forms = ({ formData, onChange }) => {
               <div className="flex justify-between pt-6">
                 <button
                   onClick={() => setStep(1)}
-                  className="border px-6 py-3 rounded-lg flex items-center gap-2"
+                  className="border px-6 py-3 rounded-lg flex items-center gap-2 cursor-pointer"
                 >
                   <ArrowLeft size={16} /> Previous
                 </button>
 
                 <button
                   onClick={() => setStep(3)}
-                  className="bg-[#c99712] text-white px-6 py-3 rounded-lg flex items-center gap-2"
+                  className="bg-[#c99712] text-white px-6 py-3 rounded-lg flex items-center gap-2 cursor-pointer"
                 >
                   Next Step <ArrowRight size={16} />
                 </button>
@@ -208,14 +208,14 @@ const Forms = ({ formData, onChange }) => {
               <div className="flex justify-between pt-6">
                 <button
                   onClick={() => setStep(2)}
-                  className="border px-6 py-3 rounded-lg flex items-center gap-2"
+                  className="border px-6 py-3 rounded-lg flex items-center gap-2 cursor-pointer"
                 >
                   <ArrowLeft size={16} /> Previous
                 </button>
 
                 <button 
                   onClick={handleNextToAssessment}
-                  className="bg-[#c99712] text-white px-6 py-3 rounded-lg flex items-center gap-2"
+                  className="bg-[#c99712] text-white px-6 py-3 rounded-lg flex items-center gap-2 cursor-pointer"
                 >
                   Proceed to Assessment <ArrowRight size={16} />
                 </button>

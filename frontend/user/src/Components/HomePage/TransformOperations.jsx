@@ -40,9 +40,11 @@ const TransformOperations = () => {
               business.
             </p>
 
+            <Link to="/contact">
             <button className="mt-8 w-full bg-[#b8890c] hover:bg-[#a87e0a] text-white py-3 rounded-lg font-medium flex items-center justify-center gap-2 transition cursor-pointer">
-              <Link to="/contact">Book Consultation →</Link>
-            </button>
+              Book Consultation →
+              </button>
+              </Link>
           </div>
 
           {/* Card 2 */}
@@ -59,9 +61,11 @@ const TransformOperations = () => {
               operations.
             </p>
 
+            <Link to="/contact">
             <button className="mt-8 w-full border border-[#2b2b2b] py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-[#f6f6f6] transition cursor-pointer">
-              <Link to="/contact">Start Assessment →</Link>
-            </button>
+              Start Assessment →
+              </button>
+              </Link>
           </div>
         </div>
 

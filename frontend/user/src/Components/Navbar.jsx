@@ -30,7 +30,11 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/">
             <div className="flex items-center gap-2 group cursor-pointer">
-              <img src={logo} alt="Movish Logo" className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300" />
+              <img
+                src={logo}
+                alt="Movish Logo"
+                className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300"
+              />
               <span className="text-xl tracking-wide font-semibold font-['Yeseva_One']">
                 Movish
                 <span className="block text-[10px] font-normal tracking-widest text-black/60 group-hover:text-[#b88a1e] transition-colors duration-300">
@@ -100,8 +104,9 @@ const Navbar = () => {
             </button>
 
             {/* CTA Button - Hidden on mobile */}
-            <button
-              className="
+            <Link to="/contact">
+              <button
+                className="cursor-pointer 
                 hidden md:flex
                 bg-[#b88a1e] text-white px-5 py-2 
                 rounded-full text-sm font-medium 
@@ -111,10 +116,10 @@ const Navbar = () => {
                 transition-all duration-300
                 hover:shadow-md hover:shadow-amber-900/10
               "
-            >
-              {/* Button glow effect */}
-              <span
-                className={`
+              >
+                {/* Button glow effect */}
+                <span
+                  className={`
                   absolute inset-0 rounded-full 
                   transition-opacity duration-300
                   ${
@@ -123,31 +128,34 @@ const Navbar = () => {
                       : "opacity-0 group-hover/cta:opacity-20"
                   }
                 `}
-              />
+                />
 
-              {/* Button content */}
-              <span className="relative transition-all duration-300 group-hover/cta:translate-x-[-2px]">
-                <Link to="/contact">Let's Discuss</Link>
-              </span>
-              <span
-                className="
+                {/* Button content */}
+
+                <span className="relative transition-all duration-300 group-hover/cta:translate-x-[-2px]">
+                  Let's Discuss
+                </span>
+
+                <span
+                  className="
                   relative transition-all duration-300 
                   group-hover/cta:translate-x-1 group-hover/cta:scale-125
                 "
-              >
-                →
-              </span>
+                >
+                  →
+                </span>
 
-              {/* Button shine effect */}
-              <span
-                className="
+                {/* Button shine effect */}
+                <span
+                  className="
                   absolute inset-0 rounded-full 
                   bg-gradient-to-r from-transparent via-white/20 to-transparent
                   translate-x-[-100%] group-hover/cta:translate-x-[100%]
                   transition-transform duration-700
                 "
-              />
-            </button>
+                />
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -186,7 +194,11 @@ const Navbar = () => {
           <div className="flex items-center justify-between mb-8">
             <Link to="/" onClick={closeMenu}>
               <div className="flex items-center gap-2 group cursor-pointer">
-                <img src={logo} alt="Movish Logo" className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300" />
+                <img
+                  src={logo}
+                  alt="Movish Logo"
+                  className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300"
+                />
                 <span className="text-xl tracking-wide font-semibold font-['Yeseva_One']">
                   Movish
                   <span className="block text-[10px] font-normal tracking-widest text-black/60 group-hover:text-[#b88a1e] transition-colors duration-300">
@@ -227,9 +239,11 @@ const Navbar = () => {
           </nav>
 
           {/* Mobile CTA Button */}
+
           <div className="pt-6 border-t border-black/10">
-            <button
-              className="
+            <Link to="/contact">
+              <button
+                className="cursor-pointer 
                 w-full
                 bg-[#b88a1e] text-white px-5 py-3 
                 rounded-full text-sm font-medium 
@@ -239,11 +253,11 @@ const Navbar = () => {
                 transition-all duration-300
                 hover:shadow-md hover:shadow-amber-900/10
               "
-              onClick={closeMenu}
-            >
-              {/* Button glow effect */}
-              <span
-                className={`
+                onClick={closeMenu}
+              >
+                {/* Button glow effect */}
+                <span
+                  className={`
                   absolute inset-0 rounded-full 
                   transition-opacity duration-300
                   ${
@@ -252,31 +266,34 @@ const Navbar = () => {
                       : "opacity-0 group-hover/cta:opacity-20"
                   }
                 `}
-              />
+                />
 
-              {/* Button content */}
-              <span className="relative transition-all duration-300 group-hover/cta:translate-x-[-2px]">
-                <Link to="/contact">Let's Discuss</Link>
-              </span>
-              <span
-                className="
+                {/* Button content */}
+
+                <span className="relative transition-all duration-300 group-hover/cta:translate-x-[-2px]">
+                  Let's Discuss
+                </span>
+
+                <span
+                  className="
                   relative transition-all duration-300 
                   group-hover/cta:translate-x-1 group-hover/cta:scale-125
                 "
-              >
-                →
-              </span>
+                >
+                  →
+                </span>
 
-              {/* Button shine effect */}
-              <span
-                className="
+                {/* Button shine effect */}
+                <span
+                  className="
                   absolute inset-0 rounded-full 
                   bg-gradient-to-r from-transparent via-white/20 to-transparent
                   translate-x-[-100%] group-hover/cta:translate-x-[100%]
                   transition-transform duration-700
                 "
-              />
-            </button>
+                />
+              </button>
+            </Link>
           </div>
         </div>
       </div>

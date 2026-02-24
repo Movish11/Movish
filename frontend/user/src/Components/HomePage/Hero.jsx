@@ -26,15 +26,19 @@ const Hero = () => {
 
         {/* Buttons */}
         <div className="flex justify-center gap-4 mb-8">
-          <button className="bg-[#b88a1e] text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2 hover:opacity-90 transition">
-            <Link to="/services">View Services</Link>
-            <ChartNoAxesColumnIncreasing className="h-4" />
-          </button>
+          <Link to="/services">
+            <button className="bg-[#b88a1e] text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2 hover:opacity-90 transition cursor-pointer">
+              View Services
+              <ChartNoAxesColumnIncreasing className="h-4" />
+            </button>
+          </Link>
 
-          <button className="border border-black/30 px-6 py-3 rounded-xl font-medium flex items-center gap-2 hover:bg-black/5 transition">
-            <Link to="/contact">Book Audit</Link>
+          <Link to="/contact">
+          <button className="border border-black/30 px-6 py-3 rounded-xl font-medium flex items-center gap-2 hover:bg-black/5 transition cursor-pointer">
+            Book Audit
             <span>→</span>
-          </button>
+            </button>
+            </Link>
         </div>
 
         {/* Divider */}

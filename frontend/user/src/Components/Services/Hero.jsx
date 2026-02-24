@@ -37,7 +37,7 @@ export default function Hero() {
         <div className=" mt-8 sm:mt-12 flex justify-center gap-4 flex-wrap">
           <button 
             onClick={() => document.getElementById('our-services')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-[#c59a2a] hover:bg-[#b38b24] text-white px-8 py-4 rounded-xl font-medium flex items-center gap-2 transition"
+            className="bg-[#c59a2a] hover:bg-[#b38b24] text-white px-8 py-4 rounded-xl font-medium flex items-center gap-2 transition cursor-pointer"
           >
             Explore Services
             <ArrowDown className="h-5" />

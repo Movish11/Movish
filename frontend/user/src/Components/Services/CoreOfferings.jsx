@@ -78,7 +78,7 @@ export default function CoreOfferings() {
               </div>
 
               <Link to="/contact">
-                <button className="w-full bg-[#c59a2a] hover:bg-[#b38b24] text-white py-4 rounded-xl font-medium flex justify-center items-center gap-2 transition">
+                <button className="w-full bg-[#c59a2a] hover:bg-[#b38b24] text-white py-4 rounded-xl font-medium flex justify-center items-center gap-2 transition cursor-pointer">
                   Explore This Service <ArrowRight className="h-4" />
                 </button>
               </Link>
@@ -143,7 +143,7 @@ export default function CoreOfferings() {
                 </div>
 
                 <Link to="/contact">
-                  <button className="w-full bg-[#c59a2a] hover:bg-[#b38b24] text-white py-4 rounded-xl font-medium flex justify-center items-center gap-2 transition">
+                  <button className="w-full bg-[#c59a2a] hover:bg-[#b38b24] text-white py-4 rounded-xl font-medium flex justify-center items-center gap-2 transition cursor-pointer">
                     Explore This Service <ArrowRight className="h-4" />
                   </button>
                 </Link>
@@ -203,7 +203,7 @@ export default function CoreOfferings() {
                 </div>
 
                 <Link to="/contact">
-                  <button className="w-full bg-[#c59a2a] hover:bg-[#b38b24] text-white py-4 rounded-xl font-medium flex justify-center items-center gap-2 transition">
+                  <button className="w-full bg-[#c59a2a] hover:bg-[#b38b24] text-white py-4 rounded-xl font-medium flex justify-center items-center gap-2 transition cursor-pointer">
                     Explore This Service <ArrowRight className="h-4" />
                   </button>
                 </Link>
