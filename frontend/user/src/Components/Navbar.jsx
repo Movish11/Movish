@@ -25,8 +25,8 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="bg-[#ffffff] w-full border-b border-black/5 fixed z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center">
+      <header className="bg-[#ffffff] w-full border-b border-black/5 fixed z-100">
+        <div className="max-w-7xl h-14 sm:h-18 mx-auto px-6 py-4 flex items-center">
           {/* Logo */}
           <Link to="/">
             <div className="flex items-center gap-2 group cursor-pointer">
@@ -172,7 +172,7 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <div
         className={`
-          fixed inset-0 z-40 bg-black/50 transition-opacity duration-300
+          fixed inset-0 z-40 bg-black/20 backdrop-blur-sm transition-opacity duration-500
           ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}
           md:hidden
         `}
@@ -182,53 +182,27 @@ const Navbar = () => {
       {/* Mobile Menu Panel */}
       <div
         className={`
-          fixed top-0 right-0 z-40 h-full w-80 max-w-full
-          bg-white transform transition-transform duration-300 ease-in-out
-          ${isMenuOpen ? "translate-x-0" : "translate-x-full"}
+          fixed top-0 left-0 z-50 w-full bg-white shadow-2xl transform transition-transform duration-500 ease-in-out
+          ${isMenuOpen ? "translate-y-0" : "-translate-y-full"}
           md:hidden
-          shadow-2xl
+          border-b border-[#b88a1e]/10
+          max-h-[70vh] flex flex-col
         `}
       >
-        <div className="p-6 h-full flex flex-col">
-          {/* Menu Header */}
-          <div className="flex items-center justify-between mb-8">
-            <Link to="/" onClick={closeMenu}>
-              <div className="flex items-center gap-2 group cursor-pointer">
-                <img
-                  src={logo}
-                  alt="Movish Logo"
-                  className="w-10 h-10 object-contain group-hover:scale-110 transition-transform duration-300"
-                />
-                <span className="text-xl tracking-wide font-semibold font-['Yeseva_One']">
-                  Movish
-                  <span className="block text-[10px] font-normal tracking-widest text-black/60 group-hover:text-[#b88a1e] transition-colors duration-300">
-                    HOSPITALITY
-                  </span>
-                </span>
-              </div>
-            </Link>
-            <button
-              onClick={closeMenu}
-              className="p-2 rounded-md hover:bg-black/5 transition-colors duration-300"
-              aria-label="Close menu"
-            >
-              <X className="w-6 h-6" />
-            </button>
-          </div>
-
-          {/* Mobile Menu Items */}
+        <div className="p-6 pt-20 flex flex-col h-full">
+          {/* Menu Items */}
           <nav className="flex-1">
-            <div className="space-y-2">
+            <div className="space-y-1">
               {menuItems.map((item) => (
                 <NavLink
                   key={item.path}
                   to={item.path}
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    `flex items-center px-4 py-3 rounded-lg transition-all duration-300 ${
+                    `flex items-center px-4 py-3 rounded-xl transition-all duration-300 ${
                       isActive
-                        ? "bg-[#b88a1e]/10 text-[#b88a1e] font-semibold"
-                        : "text-black/70 hover:bg-black/5 hover:text-[#b88a1e]"
+                        ? "text-[#b88a1e] font-semibold bg-[#b88a1e]/5"
+                        : "text-black/70 hover:text-[#b88a1e] hover:bg-black/5"
                     }`
                   }
                 >
@@ -238,9 +212,8 @@ const Navbar = () => {
             </div>
           </nav>
 
-          {/* Mobile CTA Button */}
-
-          <div className="pt-6 border-t border-black/10">
+          {/* Mobile Footer Area */}
+          <div className="mt-6 pt-6 border-t border-black/5 flex flex-col gap-4">
             <Link to="/contact">
               <button
                 className="cursor-pointer 
@@ -249,51 +222,25 @@ const Navbar = () => {
                 rounded-full text-sm font-medium 
                 flex items-center justify-center gap-2 
                 group/cta relative overflow-hidden
-                hover:text-white hover:gap-3
-                transition-all duration-300
                 hover:shadow-md hover:shadow-amber-900/10
+                transition-all duration-300
               "
                 onClick={closeMenu}
               >
-                {/* Button glow effect */}
-                <span
-                  className={`
-                  absolute inset-0 rounded-full 
-                  transition-opacity duration-300
-                  ${
-                    activeItem === "contact"
-                      ? "opacity-20 bg-gradient-to-r from-white/30 via-white/10 to-white/30"
-                      : "opacity-0 group-hover/cta:opacity-20"
-                  }
-                `}
-                />
-
-                {/* Button content */}
-
-                <span className="relative transition-all duration-300 group-hover/cta:translate-x-[-2px]">
-                  Let's Discuss
-                </span>
-
-                <span
-                  className="
-                  relative transition-all duration-300 
-                  group-hover/cta:translate-x-1 group-hover/cta:scale-125
-                "
-                >
+                <span>Let's Discuss</span>
+                <span className="group-hover:translate-x-1 transition-transform">
                   →
                 </span>
-
-                {/* Button shine effect */}
-                <span
-                  className="
-                  absolute inset-0 rounded-full 
-                  bg-gradient-to-r from-transparent via-white/20 to-transparent
-                  translate-x-[-100%] group-hover/cta:translate-x-[100%]
-                  transition-transform duration-700
-                "
-                />
               </button>
             </Link>
+            
+            <div className="flex justify-center items-center gap-4 text-[10px] text-black/40 uppercase tracking-widest font-medium">
+              <span>Modern</span>
+              <span className="w-1 h-1 bg-[#b88a1e] rounded-full"></span>
+              <span>Luxury</span>
+              <span className="w-1 h-1 bg-[#b88a1e] rounded-full"></span>
+              <span>Hospitality</span>
+            </div>
           </div>
         </div>
       </div>
