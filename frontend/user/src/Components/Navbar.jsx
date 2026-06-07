@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <>
       <header className="bg-[#ffffff] w-full border-b border-black/5 fixed z-100">
-        <div className="max-w-7xl h-14 sm:h-20 mx-auto px-6 py-4 flex items-center">
+        <div className="max-w-7xl h-14 sm:h-20 mx-auto px-6 py-4 flex items-center md:gap-8">
           {/* Logo */}
           <Link to="/">
             <div className="flex items-center gap-2 group cursor-pointer">
