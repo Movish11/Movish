@@ -27,11 +27,13 @@ const Footer = () => {
             <div className="mt-8 space-y-4 text-sm">
               <div className="flex items-center gap-3">
                 <Mail size={18} />
-                <span>connect@movish.in</span>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=connect@movish.in" target="_blank" rel="noopener noreferrer" className="hidden sm:inline hover:text-[#ddb52f] transition-colors">connect@movish.in</a>
+                <a href="mailto:connect@movish.in" className="sm:hidden hover:text-[#ddb52f] transition-colors">connect@movish.in</a>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={18} />
-                <span>+91 7091659700</span>
+                <span className="hidden sm:inline">+91 7091659700</span>
+                <a href="tel:+917091659700" className="sm:hidden hover:text-[#ddb52f] transition-colors">+91 7091659700</a>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin size={18} />

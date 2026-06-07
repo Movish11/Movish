@@ -245,7 +245,7 @@ const Forms = ({ formData, onChange }) => {
               <Mail className="text-[#c99712]" />
               <div>
                 <p className="text-sm text-neutral-500">Email</p>
-                <p className="font-medium">connect@movish.in</p>
+                <a href="mailto:connect@movish.in" className="font-medium hover:text-[#ddb52f] transition-colors">connect@movish.in</a>
               </div>
             </div>
 
@@ -253,7 +253,7 @@ const Forms = ({ formData, onChange }) => {
               <Phone className="text-[#c99712]" />
               <div>
                 <p className="text-sm text-neutral-500">Phone</p>
-                <p className="font-medium">+91 7091659700</p>
+                <a href="tel:+917091659700" className="font-medium hover:text-[#ddb52f] transition-colors">+91 7091659700</a>
               </div>
             </div>
 

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const LuxuryMachine = () => {
   return (
@@ -16,17 +15,23 @@ const LuxuryMachine = () => {
         </p>
 
         <div className="flex flex-col font-sans sm:flex-row items-center justify-center gap-4">
-          <Link to="/contact" className="w-full sm:w-auto">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=connect@movish.in" target="_blank" rel="noopener noreferrer" className="hidden sm:block w-full sm:w-auto">
             <button className="w-full sm:px-8 py-4 rounded-xl bg-[#ddb52f] text-black font-semibold shadow-md hover:brightness-95 transition">
               Email Us Directly
             </button>
-          </Link>
+          </a>
 
-          <Link to="/contact" className="w-full sm:w-auto">
+          <a href="mailto:connect@movish.in" className="block sm:hidden w-full sm:w-auto">
+            <button className="w-full sm:px-8 py-4 rounded-xl bg-[#ddb52f] text-black font-semibold shadow-md hover:brightness-95 transition">
+              Email Us Directly
+            </button>
+          </a>
+
+          <a href="tel:+917091659700" className="block sm:hidden w-full sm:w-auto">
             <button className="w-full sm:px-8 py-4 rounded-xl border-2 border-white/70 text-white font-semibold backdrop-blur-sm hover:bg-white/10 transition">
               Call Now
             </button>
-          </Link>
+          </a>
         </div>
       </div>
     </section>
